@@ -4,3 +4,4 @@ from leaflet.admin import LeafletGeoAdmin
 # Register your models here.
 
 admin.site.register(TiposDeDatos,LeafletGeoAdmin)
+admin.site.register(Imagenes)

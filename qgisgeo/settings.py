@@ -82,9 +82,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'HOST': 'localhost',
-        'NAME': 'qgisdj',
+        'NAME': 'qgisgeodjangoutm',
         'USER': 'postgres',
-        'PASSWORD': 'bazinga',
+        'PASSWORD': 'postgres',
         'PORT': 5432
     },
 }
