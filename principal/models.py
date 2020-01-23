@@ -13,14 +13,6 @@ class TiposDeDatos(models.Model):
     multi_linea = models.MultiLineStringField(srid=32718)
 
 
-"""
+class Imagenes(models.Model):
+    foto = models.ImageField(upload_to='imagen')
 
-pnt = GEOSGeometry('SRID=32718;POINT({} {})'.format(str(585274.0960410312),str(8544278.898776622)))
-pnt.transform(4326)
-pnt
-<Point object at 0x7fbd9360d098>
-pnt.x
--74.21313196420671
-pnt.center
-for change 
-"""

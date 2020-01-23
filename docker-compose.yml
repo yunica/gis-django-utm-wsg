@@ -1,0 +1,23 @@
+version: '3'
+services:
+  db:
+    image: mdillon/postgis:9.6
+    container_name: db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=qgisgeodjangoutm
+    ports:
+      - '15432:5432'
+    volumes:
+      - ./docker/postgresql:/var/lib/postgresql/data
+  app:
+    container_name: app
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./:/code/
+    ports:
+      - '80:8000'
+    depends_on:
+      - db

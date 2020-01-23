@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'qgisgeo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'HOST': 'localhost',
-        'NAME': 'qgisdj',
+        'HOST': 'db',
+        'NAME': 'qgisgeodjangoutm',
         'USER': 'postgres',
-        'PASSWORD': 'bazinga',
+        'PASSWORD': 'postgres',
         'PORT': 5432
     },
 }
@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-PE'
 
 TIME_ZONE = 'UTC'
 
