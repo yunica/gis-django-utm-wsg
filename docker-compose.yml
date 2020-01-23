@@ -8,15 +8,15 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=qgisgeodjangoutm
     ports:
-      - '5433:5432'
+      - '15432:5432'
     volumes:
       - ./docker/postgresql:/var/lib/postgresql/data
   app:
     container_name: app
     build: .
-    command: python3 manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/src
+      - ./:/code/
     ports:
       - '80:8000'
     depends_on:

@@ -1,32 +1,19 @@
-FROM ubuntu:bionic
-LABEL version="2.1.2"
+FROM python:3.7
+LABEL version="0.1.0"
 
+ENV DEBIAN_FRONTEND noninteractive
 ENV PYTHONUNBUFFERED 1
-ENV LANG=en_US.UTF-8 \
-    LANGUAGE=en_US:en \
-    LC_ALL=en_US.UTF-8 \
-    LC_TYPE=en_US.UTF-8 \
-    PYTHONIOENCODING=utf-8
 
 RUN echo "========== Iniciando la instalacion de dependencias========== "
-RUN apt-get update -qq && apt-get install -y -qq \
-    # std libs
-    git less nano curl \
-    ca-certificates \
-    wget build-essential\
-    # python basic libs
-    python3.7 python3.7-dev python3.7-venv gettext \
-    python3.7-pip  python-enchant \
-    # geodjango
-    gdal-bin binutils libproj-dev libgdal-dev
+RUN apt-get update -y -qq && apt-get install --auto-remove -y -qq \
+    gdal-bin binutils libproj-dev libgdal-dev locales
 
+RUN echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && /usr/sbin/locale-gen
 RUN echo " ========== moviendo los archivos  ========== "
 RUN mkdir /code
 WORKDIR /code
-COPY requirements.txt /code/
 COPY . /code/
-RUN  pip2 install --no-cache-dir -r requirements.txt
-
-
+RUN echo " ========== Instalando dependencias  ========== "
+RUN  pip install --no-cache-dir -r requirements.txt
 
 CMD ["/bin/bash"]
