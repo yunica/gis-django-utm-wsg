@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'qgisgeo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'HOST': 'db',
+        'HOST': 'localhost',
         'NAME': 'qgisgeodjangoutm',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
